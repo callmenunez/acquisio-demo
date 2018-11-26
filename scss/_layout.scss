@@ -1,0 +1,38 @@
+// Header, footer, navigation, section 
+
+// need this to prevent bootstrap styles conflicting with flexbox 
+.container:after, .container:before {
+  content: none;
+}
+
+nav {
+  .container {
+    display: flex;
+    justify-content: space-between;
+  }
+  svg {
+    width: 200px;
+    fill: #fff;
+  }
+  .phone-number {
+    color: #fff;
+  }
+}
+section.hero {
+  min-height: 400px;
+  margin-top: 50px;
+  padding-bottom: 50px;
+  background-color: #000000;
+  color: #fff;
+  text-transform: uppercase;
+  display: flex;
+  .container {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    // height: 100%;
+  }
+  h1 {
+    font-weight: 300;
+  }
+}
