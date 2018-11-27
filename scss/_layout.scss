@@ -1,0 +1,123 @@
+// Header, footer, navigation, section 
+
+// need this to prevent bootstrap styles conflicting with flexbox 
+.container:after, .container:before {
+  content: none;
+}
+
+nav {
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  svg {
+    width: 200px;
+    fill: #fff;
+    display: block;
+  }
+  .phone-number {
+    color: #fff;
+  }
+}
+section.hero {
+  min-height: 400px;
+  margin-top: 60px;
+  padding-bottom: 50px;
+  background-color: #000000;
+  color: #fff;
+  text-transform: uppercase;
+  display: flex;
+  .container {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+  }
+  h1 {
+    font-weight: 300;
+    .machine-learning {
+      color:#01bded;
+    }
+  }
+}
+section.about {
+  background-color: #efefef;
+  padding: 60px 0 72px;
+  h2 {
+    font-weight: 300;
+  }
+}
+
+section.start-demo {
+  .left-half {
+    max-width: 570px;
+    margin-right: 0;
+    margin-left: auto;
+    padding-left: 15px;
+  }
+  .right-half {
+    max-width: 570px;
+  }
+  .left-half, .right-half {
+    padding-top: 84px;
+    padding-bottom: 96px;
+  }
+  .left-background {
+    background-color: #efefef;
+  }
+  .demo-code {
+    display: flex;
+    align-items: stretch;
+    .your-demo-code{
+      width: 100%;
+      background-color: #f3f3f3;
+      color: #3f4144;
+      padding: 15px 5px;
+      border: 1px solid #bebebe;
+    }
+    .button {
+      border-radius: 4px;
+    }
+    .button-blue {
+      width: 100%;
+      background-color: #01bded;
+      color: #fff;
+      height: 100%;
+    }
+  }
+}
+
+section.what-you-get {
+  .left-background {
+    background-image: url(../img/what-you-get.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 300px;
+  }
+  .right-background {
+    background-color: #f3f3f3;
+  }
+}
+
+section.feature-overview {
+  padding-top: 80px;
+  padding-bottom: 40px;
+  .cards {
+    display: flex;
+    justify-content: space-between;
+  }
+  .card {
+    background-color: #f3f3f3;
+    height: 200px;
+    border-radius: 4px;
+    min-width: 200px;
+  }
+}
+
+section.success-managers {
+  padding-top: 40px;
+  padding-bottom: 80px;
+  background-color: #f3f3f3;
+}
