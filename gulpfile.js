@@ -5,7 +5,8 @@ const sass = require('gulp-sass');
 const browserSync = require('browser-sync');
 const connect = require('gulp-connect-php');
 const autoprefixer = require('gulp-autoprefixer');
-const uglify = require('gulp-uglify');
+// const uglify = require('gulp-uglify');
+const uglify = require('gulp-uglify-es').default;
 const htmlmin = require('gulp-htmlmin');
 
 // Set the browser that you want to support
