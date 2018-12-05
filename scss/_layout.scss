@@ -4,7 +4,6 @@
 .container:after, .container:before {
   content: none;
 }
-
 nav {
   &.navbar-inverse {
     background-color: #000000;
@@ -59,7 +58,6 @@ section.about {
     }
   }
 }
-
 section.start-demo {
   h5 {
     font-size: 16px;
@@ -134,32 +132,35 @@ section.what-you-get {
   .left-background {
     background-image: url(../img/what-you-get.jpg);
     background-size: cover;
+    background-position: center;
     background-repeat: no-repeat;
     min-height: 400px;
   }
   .right-half {
     max-width: 570px;
-    padding-left: 90px;
-    ul {
-      padding-left: 50px;
-      list-style-type: none;
-      li:before {
-        content: '';
-        display: inline-block;
-        height: 41px;
-        width: 41px;
-        background-size: 41px;
-        background-image: url("../img/bullet.svg");
-        background-repeat: no-repeat;
-        margin-left: -50px;
-        margin-right: 0;
-      }
+    margin-left: 0;
+    .bullet-list {
+      padding-left: 40px;
+      display: flex;
+    }
+    h3 {
+      margin: 20px 0 20px 84px;
+    }
+    svg {
+      width: 36px;
+      margin-right: 12px;
+    }
+    h2 {
+      margin-top: 8px;
+    }
+    p {
+      margin-bottom: 20px;
     }
   }
 }
 
 section.feature-overview {
-  padding-top: 80px;
+  padding-top: 60px;
   padding-bottom: 40px;
   .card-section {
     display: flex;
@@ -171,10 +172,10 @@ section.feature-overview {
     background-color: #f3f3f3;
     height: 200px;
     border-radius: 4px;
-    min-width: 200px;
     padding: 24px 24px 48px;
     height: inherit;
     margin: 0 12px;
+    width: 100%;
     h2 {
       margin-bottom: 48px;
     }
@@ -183,7 +184,6 @@ section.feature-overview {
     }
   }
 }
-
 section.success-managers {
   padding-top: 40px;
   padding-bottom: 80px;
@@ -213,7 +213,6 @@ section.success-managers {
     margin-top: 24px;
   }
 }
-
 section.industry-leading {
   background-color: #01bded;
   padding-top: 80px;
@@ -230,5 +229,63 @@ section.industry-leading {
   .industry-images {
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
+  }
+}
+@media (max-width: 992px) {
+  section.about {
+    padding-bottom: 0;
+    .responsive {
+      display: none;
+    }
+  }
+  section.start-demo {
+    .left-half {
+      text-align: center;
+      margin: auto;
+      padding-left: 0;
+      ul {
+        list-style-position: inside;
+        padding-left: 0;
+      }
+    }
+    .right-half {
+      text-align: center;
+      margin: auto;
+      padding-left: 0;
+    }
+  }
+  section.what-you-get {
+    .right-half {
+      margin: auto;
+      h3 {
+        text-align: center;
+        margin-left: 0;
+      }
+      .bullet-list {
+        padding-left: 0;
+      }
+    }
+  }
+  section.feature-overview {
+    .card-section {
+      flex-wrap: wrap;
+    }
+    .card {
+      max-width: 400px;
+      margin: 12px auto;
+    }
+  }
+}
+@media (max-width: 576px) {
+  nav {
+    svg {
+      width: 150px;
+    }
+  }
+  section.hero {
+    h1 {
+      font-size: 36px;
+    }
   }
 }
