@@ -14,30 +14,10 @@ exports.databaseSave = (req, res, next) => {
   const nameIdentifier = customerName.replace(/\s+/g, '').toLowerCase();
   let brandName;
   const brandDomain = req.headers.host;
-  if (brandDomain.indexOf('lbwdemo.ca') >= 0) {
-    brandName = 'LBW Canada';
+  if (brandDomain.indexOf('acquisiodemo') >= 0) {
+    brandName = 'Acquisio Demo';
   }
-  else if (brandDomain.indexOf('lbwdemo') >= 0) {
-    brandName = 'LBW';
-  }
-  else if (brandDomain.indexOf('acquisiodemo.ca') >= 0) {
-    brandName = 'Lead Stream Canada';
-  }
-  else if (brandDomain.indexOf('acquisiodemo') >= 0) {
-    brandName = 'Lead Stream';
-  }
-  else if (brandDomain.indexOf('yodledemo.ca') >= 0) {
-    brandName = 'Yodle Canada';
-  }
-  else if (brandDomain.indexOf('yodledemo') >= 0) {
-    brandName = 'Yodle';
-  }
-  else if (brandDomain.indexOf('torchxdemo') >= 0) {
-    brandName = 'TORCHx';
-  }
-  else if (brandDomain.indexOf('lighthousedemo') >= 0) {
-    brandName = 'Lighthouse Dental';
-  }
+  
   const queryParams = {
     TableName: 'salesDemo',
     IndexName: 'identifierCode-index',
