@@ -1,12 +1,14 @@
 <!doctype html>
 
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
   <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-  <title>Acquisio Demo</title>
-  <meta name="description" content="put your site description here">
-  <meta name="author" content="David Nunez">
+
+  <title>{{title}}</title>
+  <meta name="description" content="{{metaDescription}}">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <link rel="stylesheet" href="css/main.css">
 
@@ -92,6 +94,9 @@
         </div>
         <div class="col-md-6">
           <div class="right-half">
+            {% if repName|length %}
+            
+            {% endif %}
             {% if customCode != '' %}
             <div class="row demo-code">
               <div class="col-md-3 rep-photo">
@@ -100,7 +105,8 @@
                 </svg>
               </div>
               <div class="col-md-8 col-md-offset-0 rep-info">
-                <h4>{{repName}} test </h4>
+                <h4>{{repName}}test <br>
+                </h4>
                 <p class="rep-position">Lead Stream Sales Representative</p>
                 <p class="rep-phone">{{repPhone}}</p>
               </div>
@@ -308,6 +314,24 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script>
+    // Redirect form
+    $('.demo-code button').click(() => {
+    let demoCodeValue = $('.your-demo-code').val();
+    demoCodeValue = demoCodeValue.toLowerCase();
+    window.location.replace(`/${demoCodeValue}`);
+
+    return false;
+  });
+
+  $('.demo-code input').keydown((e) => {
+    if (e.which === 13) {
+      let demoCodeValue = $('.your-demo-code').val();
+      demoCodeValue = demoCodeValue.toLowerCase();
+      window.location.replace(`/${demoCodeValue}`);
+    }
+  });
+  </script>
   <!-- <script src="js/scripts.js"></script> -->
   
 </body>

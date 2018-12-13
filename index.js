@@ -4,7 +4,7 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const nunjucks = require('nunjucks');
 
-// const awsSave = require('./middleware/aws-save').middlewareStack;
+const awsSave = require('./middleware/aws-save').middlewareStack;
 const awsRetrieve = require('./middleware/aws-retrieve').middlewareStack;
 
 const app = express();
@@ -16,14 +16,44 @@ app.use(bodyParser.urlencoded({extended: false}));
 
 app.use(express.static(path.join(__dirname, 'public')));
 
+
+
 app.use('/:customCode', awsRetrieve, function(req, res, next) {
-  // const brandDomain = req.headers.host;
+
+
+  function logResponseBody(req, res, next) {
+    var oldWrite = res.write,
+        oldEnd = res.end;
   
-  // if (brandDomain.indexOf('acquisiodemo') >= 0) {
+    var chunks = [];
+  
+    res.write = function (chunk) {
+      chunks.push(chunk);
+  
+      oldWrite.apply(res, arguments);
+    };
+  
+    res.end = function (chunk) {
+      if (chunk)
+        chunks.push(chunk);
+  
+      var body = Buffer.concat(chunks).toString('utf8');
+      console.log(req.path, body);
+  
+      oldEnd.apply(res, arguments);
+    };
+  
+    next();
+  }
+  
+  app.use(logResponseBody);
+
+  const brandDomain = req.headers.host;
+  // if (brandDomain.indexOf('demo.acquisio') >= 0) {
     res.render('views/acquisio-demo/index.html', {
-      className: 'home',
+      // className: 'home',
       metaDescription: '',
-      title: 'Acquisio Demo',
+      title: 'Test Acquisio Demo',
       repName: res.repName,
       repTitle: res.repTitle,
       repPhone: res.repPhone,
@@ -41,18 +71,19 @@ app.use('/:customCode', awsRetrieve, function(req, res, next) {
   // }
 });
 
-app.use('/', function(req, res, next) {
-  const brandDomain = req.headers.host;
 
-  // if (brandDomain.indexOf('acquisiodemo') >= 0) {
-    res.render('views/acquisio-demo/index.html', {
-      className: 'home',
-      metaDescription: '',
-      title: 'Acquisio Demo'
-    });
-  // }
-});
-
+app.use('/', function(req, res) {
+  // app.use('/', function(req, res, next) {
+    const brandDomain = req.headers.host;
+  
+    // if (brandDomain.indexOf('demo.acquisio') >= 0) {
+      res.render('views/acquisio-demo/index.html', {
+        // className: 'home',
+        metaDescription: '',
+        title: 'Acquisio Demo'
+      });
+    // }
+  });
 
 // start app ===============================================
 app.listen(port);
