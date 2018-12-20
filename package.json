@@ -1,8 +1,8 @@
 {
-  "name": "website-template",
+  "name": "acquisio-demo",
   "version": "1.0.0",
-  "description": "basic template to start any new project",
-  "main": "gulpfile.js",
+  "description": "acquisio demo test",
+  "main": "index.js",
   "dependencies": {
     "aws-sdk": "^2.370.0",
     "browser-sync": "^2.26.0",
@@ -36,12 +36,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/callmenunez/website-template.git"
+    "url": "git+https://github.com/callmenunez/acquisio-demo.git"
   },
   "author": "David Nunez",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/callmenunez/website-template/issues"
+    "url": "https://github.com/callmenunez/acquisio-demo/issues"
   },
-  "homepage": "https://github.com/callmenunez/website-template#readme"
+  "homepage": "https://github.com/callmenunez/acquisio-demo#readme"
 }
