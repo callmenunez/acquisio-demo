@@ -20,7 +20,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/:customCode', awsRetrieve, function(req, res, next) {
 
-
   function logResponseBody(req, res, next) {
     var oldWrite = res.write,
         oldEnd = res.end;
@@ -36,7 +35,7 @@ app.use('/:customCode', awsRetrieve, function(req, res, next) {
     res.end = function (chunk) {
       if (chunk)
         chunks.push(chunk);
-  
+
       var body = Buffer.concat(chunks).toString('utf8');
       console.log(req.path, body);
   
@@ -80,7 +79,7 @@ app.use('/', function(req, res) {
       res.render('views/acquisio-demo/index.html', {
         // className: 'home',
         metaDescription: '',
-        title: 'Acquisio Demo'
+        title: 'Acquisio Demo test'
       });
     // }
   });
