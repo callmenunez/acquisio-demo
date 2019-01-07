@@ -8,7 +8,7 @@ const awsSave = require('./middleware/aws-save').middlewareStack;
 const awsRetrieve = require('./middleware/aws-retrieve').middlewareStack;
 
 const app = express();
-const port = process.env.NODE_PORT || 3008;
+// const port = process.env.NODE_PORT || 3008;
 
 app.set('view engine', 'nunjucks');
 app.use(bodyParser.json());
@@ -85,6 +85,12 @@ app.use('/', function(req, res) {
   });
 
 // start app ===============================================
+// app.listen(port);
+
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 8000;
+}
 app.listen(port);
 // shoutout to the user
 console.log(`Server running on port ${port}`);
