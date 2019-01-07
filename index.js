@@ -16,8 +16,6 @@ app.use(bodyParser.urlencoded({extended: false}));
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-
-
 app.use('/:customCode', awsRetrieve, function(req, res, next) {
 
   function logResponseBody(req, res, next) {
@@ -70,18 +68,16 @@ app.use('/:customCode', awsRetrieve, function(req, res, next) {
   // }
 });
 
-
-app.use('/', function(req, res) {
-  // app.use('/', function(req, res, next) {
+app.use('/', function(req, res, next) {
     const brandDomain = req.headers.host;
   
-    // if (brandDomain.indexOf('demo.acquisio') >= 0) {
+    if (brandDomain.indexOf('demo.acquisio') >= 0) {
       res.render('views/acquisio-demo/index.html', {
         // className: 'home',
         metaDescription: '',
         title: 'Acquisio Demo test'
       });
-    // }
+    }
   });
 
 // start app ===============================================
