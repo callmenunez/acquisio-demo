@@ -1,17 +1,21 @@
 {
-  "name": "website-template",
+  "name": "acquisio-demo",
   "version": "1.0.0",
-  "description": "basic template to start any new project",
-  "main": "gulpfile.js",
+  "description": "acquisio demo test",
+  "main": "index.js",
   "dependencies": {
+    "aws-sdk": "^2.370.0",
     "browser-sync": "^2.26.0",
+    "del": "^3.0.0",
     "express": "^4.16.4",
+    "fs-jetpack": "^2.2.0",
     "gulp-autoprefixer": "^6.0.0",
     "gulp-connect-php": "^1.0.3",
     "gulp-inline-source": "^3.2.0",
     "gulp-sass": "^4.0.1",
+    "moment": "^2.22.2",
     "normalize.css": "^8.0.0",
-    "nunjucks": "^3.1.4",
+    "nunjucks": "2.5.2",
     "pump": "^3.0.0"
   },
   "devDependencies": {
@@ -19,21 +23,25 @@
     "@babel/preset-env": "^7.1.0",
     "gulp": "^3.9.1",
     "gulp-babel": "^8.0.0",
+    "gulp-cssnano": "^2.1.3",
     "gulp-htmlmin": "^5.0.1",
+    "gulp-nodemon": "^2.4.2",
     "gulp-uglify": "^3.0.1",
-    "gulp-uglify-es": "^1.0.4"
+    "gulp-uglify-es": "^1.0.4",
+    "webpack": "^4.27.1",
+    "webpack-config": "^7.5.0"
   },
   "scripts": {
     "test": "its working!"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/callmenunez/website-template.git"
+    "url": "git+https://github.com/callmenunez/acquisio-demo.git"
   },
   "author": "David Nunez",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/callmenunez/website-template/issues"
+    "url": "https://github.com/callmenunez/acquisio-demo/issues"
   },
-  "homepage": "https://github.com/callmenunez/website-template#readme"
+  "homepage": "https://github.com/callmenunez/acquisio-demo#readme"
 }
