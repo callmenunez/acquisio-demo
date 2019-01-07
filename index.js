@@ -4,11 +4,11 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const nunjucks = require('nunjucks');
 
-const awsSave = require('./middleware/aws-save').middlewareStack;
+// const awsSave = require('./middleware/aws-save').middlewareStack;
 const awsRetrieve = require('./middleware/aws-retrieve').middlewareStack;
 
 const app = express();
-// const port = process.env.NODE_PORT || 3008;
+const port = process.env.NODE_PORT || 3008;
 
 app.set('view engine', 'nunjucks');
 app.use(bodyParser.json());
@@ -17,32 +17,23 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/:customCode', awsRetrieve, function(req, res, next) {
-
   function logResponseBody(req, res, next) {
     var oldWrite = res.write,
         oldEnd = res.end;
-  
     var chunks = [];
-  
     res.write = function (chunk) {
       chunks.push(chunk);
-  
       oldWrite.apply(res, arguments);
     };
-  
     res.end = function (chunk) {
       if (chunk)
         chunks.push(chunk);
-
       var body = Buffer.concat(chunks).toString('utf8');
       console.log(req.path, body);
-  
       oldEnd.apply(res, arguments);
     };
-  
     next();
   }
-  
   app.use(logResponseBody);
 
   const brandDomain = req.headers.host;
@@ -81,13 +72,13 @@ app.use('/', function(req, res, next) {
   });
 
 // start app ===============================================
-// app.listen(port);
-
-let port = process.env.PORT;
-if (port == null || port == "") {
-  port = 8000;
-}
 app.listen(port);
+
+// let port = process.env.PORT;
+// if (port == null || port == "") {
+//   port = 8000;
+// }
+// app.listen(port);
 // shoutout to the user
 console.log(`Server running on port ${port}`);
 
